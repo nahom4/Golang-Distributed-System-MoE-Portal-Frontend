@@ -3,7 +3,7 @@ import { createApi, fetchBaseQuery } from "@reduxjs/toolkit/query/react";
 export const distributedSystemApi = createApi({
   reducerPath: "distributedSystemApi",
   baseQuery: fetchBaseQuery({
-    baseUrl: "https://golang-distributed-system-moe-portal.onrender.com"
+    baseUrl: "http://localhost:8080",
   }),
   endpoints: (builder) => ({
     getResult: builder.query({
@@ -96,7 +96,7 @@ export const distributedSystemApi = createApi({
           return Math.random() * 180;
         };
         return {
-          url: `/signatories?Latitude=${getRandomFloat()}&Longitude=${getRandomFloat()}&tag=petition&PetitionName="${title}"`,
+          url: `/signatories?Latitude=${getRandomFloat()}&Longitude=${getRandomFloat()}&tag=petition&PetitionName=${title}`, 
           method: "GET"
         };
       }
